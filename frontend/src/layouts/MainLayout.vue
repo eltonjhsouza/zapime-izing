@@ -299,7 +299,7 @@ export default {
   data () {
     return {
       username,
-      domainExperimentalsMenus: ['@izing.io', '@gmail.com'],
+      domainExperimentalsMenus: ['@izing.io', '@gmail.com', '.com.br', '@hotmail.com'],
       miniState: true,
       logozapime: logoZapime,
       userProfile: 'user',
@@ -346,7 +346,7 @@ export default {
   },
   methods: {
     exibirMenuBeta (itemMenu) {
-      if (this.usuario.email === 'eltonjhsouza@gmail.com') return true
+      return true
       // if (!itemMenu?.isBeta) return true
       // for (const domain of this.domainExperimentalsMenus) {
       //   // if (this.usuario.email.indexOf(domain) !== -1) return true
