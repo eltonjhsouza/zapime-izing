@@ -351,7 +351,6 @@ export default {
       // for (const domain of this.domainExperimentalsMenus) {
       //   // if (this.usuario.email.indexOf(domain) !== -1) return true
       // }
-      return false
     },
     async listarWhatsapps () {
       const { data } = await ListarWhatsapps()
