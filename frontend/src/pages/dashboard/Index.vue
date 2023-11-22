@@ -2,8 +2,8 @@
   <div class="q-pa-sm">
     <q-card class="q-my-md">
       <q-card-section class="row justify-between items-center">
-        <div class="col-xs-12 col-md-3 text-h4 text-bold">
-          DashBoard
+        <div class="col-xs-12 col-md-3 text-h6 text-bold">
+          Olá {{currentUser}}, Seja bem vindo!
         </div>
         <div class="col-xs-12 col-md-9 justify-end flex q-gutter-sm">
           <q-datetime-picker
@@ -278,6 +278,7 @@ export default {
   components: { ApexChart },
   data () {
     return {
+      currentUser: '',
       confiWidth: {
         horizontal: false,
         width: this.$q.screen.width
@@ -859,6 +860,7 @@ export default {
     this.ticketsEvolutionByPeriodOptions = { ...this.ticketsEvolutionByPeriodOptions, theme }
   },
   mounted () {
+    this.currentUser = localStorage.getItem('username')
     this.listarFilas()
     this.getDashData()
   }
