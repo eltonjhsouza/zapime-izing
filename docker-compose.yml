@@ -1,14 +1,14 @@
 version: '3'
 
 services:
-
+  
   fixPermissionsPostregres:
     image: 'postgres:14'
     user: root
     command: chown -R 1001:1001 /var/lib/postgresql
     volumes:
       - '$HOME/www/izing/database/pg:/var/lib/postgresql'
-
+  
   izing-db:
     image: 'postgres:14'
     restart: always
@@ -36,7 +36,7 @@ services:
       - '$HOME/www/izing/database/redis:/data'
     networks:
       - redis_network
-
+  
   izing-rabbitmq:
     image: rabbitmq:3-management
     container_name: "izing-rabbitmq"
@@ -75,7 +75,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      #- "./backend:/usr/src/app"
+      - "./backend:/usr/src/app"
       - $HOME/www/izing/media:/usr/src/app/public
     networks:
       - rabbitmq_network
@@ -86,7 +86,7 @@ services:
       - izing-redis
       - izing-db
       - izing-rabbitmq
-
+  
   nginx:
     container_name: nginx-proxy
     build:
@@ -107,6 +107,7 @@ services:
       - izing-backend
     networks:
       - nginx_network
+
 
 
 networks:
