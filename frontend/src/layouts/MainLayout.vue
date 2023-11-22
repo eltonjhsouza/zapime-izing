@@ -139,7 +139,7 @@
 
         </q-list>
       </q-scroll-area>
-      <div class="absolute-bottom text-center row justify-start"
+      <!-- <div class="absolute-bottom text-center row justify-start"
         :class="{ 'bg-grey-3': $q.dark.isActive }"
         style="height: 40px">
         <q-toggle size="xl"
@@ -156,7 +156,7 @@
             {{ $q.dark.isActive ? 'Desativar' : 'Ativar' }} Modo Escuro (Dark Mode)
           </q-tooltip>
         </q-toggle>
-      </div>
+      </div> -->
     </q-drawer>
 
     <q-page-container>
