@@ -75,7 +75,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      - "./backend:/usr/src/app"
+      # - "./backend:/usr/src/app"
       - $HOME/www/izing/media:/usr/src/app/public
     networks:
       - rabbitmq_network
