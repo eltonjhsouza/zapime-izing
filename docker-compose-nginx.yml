@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  nginx:
+    container_name: nginx-proxy
+    build:
+      context: .
+      # args:
+      #   - DOMINIO_CLIENTE=${DOMINIO_CLIENTE}
+    restart: always
+    stdin_open: true
+    tty: true
+    entrypoint: nginx -g "daemon off;"
+    ports:
+      - "443:443"
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - $HOME/www/izing/media:/opt/services/app/media
+    networks:
+      - nginx_network
+
+
+networks:
+  nginx_network:
+    driver: bridge
