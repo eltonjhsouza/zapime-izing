@@ -71,12 +71,19 @@
             <q-card
               flat
               bordered
-              class="my-card full-height"
-              style="min-width: 200px"
+              class="my-card full-height flex"
+              style="min-width: 300px; background-color: #17a2b8"
             >
-              <q-card-section class="text-center ">
-                <p class="text-h4 text-bold text-center"> {{ ticketsAndTimes.qtd_total_atendimentos }} </p>
-                Total Atendimentos
+              <q-card-section class="text-center text-white q-mt-md q-mr-md">
+                <div>
+                  Total Atendimentos
+                </div>
+                <div class="q-ma-md">
+                  <p class="text-h3 text-bold text-center"> {{ ticketsAndTimes.qtd_total_atendimentos }} </p>
+                </div>
+              </q-card-section>
+              <q-card-section >
+                <q-icon name="phone" class="iconCards" style="color: #106a79"/>
               </q-card-section>
             </q-card>
           </div>
@@ -84,12 +91,19 @@
             <q-card
               flat
               bordered
-              class="my-card full-height"
-              style="min-width: 200px"
+              class="my-card full-height flex"
+              style="min-width: 300px; background-color: #606869"
             >
-              <q-card-section class="text-center">
-                <p class="text-h4 text-bold text-center"> {{ ticketsAndTimes.qtd_demanda_ativa }} </p>
-                Ativo
+              <q-card-section class="text-center text-white q-mt-md" >
+                <div>
+                  Atendimentos Ativos
+                </div>
+                <div class="q-ma-md">
+                  <p class="text-h3 text-bold text-center"> {{ ticketsAndTimes.qtd_demanda_ativa }} </p>
+                </div>
+              </q-card-section>
+              <q-card-section class="q-ml-sm">
+                <q-icon name="mdi-timer-sand" class="iconCards" style="color: #313435"/>
               </q-card-section>
             </q-card>
           </div>
@@ -97,25 +111,39 @@
             <q-card
               flat
               bordered
-              class="my-card full-height"
-              style="min-width: 200px"
+              class="my-card full-height flex"
+              style="min-width: 300px; background-color: #28a745"
             >
-              <q-card-section class="text-center">
-                <p class="text-h4 text-bold text-center"> {{ ticketsAndTimes.qtd_demanda_receptiva }} </p>
-                Receptivo
+              <q-card-section class="text-center text-white q-mt-md" >
+                <div>
+                  Atd. Finalizados
+                </div>
+                <div class="q-ma-md">
+                  <p class="text-h3 text-bold text-center"> {{ ticketsAndTimes.qtd_demanda_receptiva }} </p>
+                </div>
+              </q-card-section>
+              <q-card-section class="q-ml-md">
+                <q-icon name="mdi-check-circle-outline" class="iconCards" style="color: #396327;"/>
               </q-card-section>
             </q-card>
           </div>
-          <div class="col-xs-12 col-sm-shrink">
+         <div class="col-xs-12 col-sm-shrink">
             <q-card
               flat
               bordered
-              class="my-card full-height"
-              style="min-width: 200px"
+              class="my-card full-height flex"
+              style="min-width: 300px; background-color: #7d7ae6"
             >
-              <q-card-section class="text-center">
-                <p class="text-h4 text-bold text-center"> {{ ticketsAndTimes.new_contacts }} </p>
-                Novos Contatos
+              <q-card-section class="text-center text-white q-mt-md" >
+                <div>
+                  Novos Contatos
+                </div>
+                <div class="q-ma-md">
+                  <p class="text-h3 text-bold text-center"> {{ ticketsAndTimes.new_contacts }} </p>
+                </div>
+              </q-card-section>
+              <q-card-section class="q-ml-md">
+                <q-icon name="mdi-account-plus" class="iconCards" style="color: #3c3a85"/>
               </q-card-section>
             </q-card>
           </div>
@@ -124,6 +152,7 @@
               flat
               bordered
               class="my-card full-height"
+              style="background-color: #ffc107;"
             >
               <q-card-section class="text-center">
                 <p class="text-h5 text-bold text-center"> {{ cTmaFormat }} </p>
@@ -135,9 +164,9 @@
             <q-card
               flat
               bordered
-              class="my-card full-height"
+              class="my-card full-height bg-teal"
             >
-              <q-card-section class="text-center">
+              <q-card-section class="text-center text-white">
                 <p class="text-h5 text-bold text-center"> {{ cTmeFormat }} </p>
                 Tempo Médio 1º Resposta
               </q-card-section>
@@ -839,5 +868,14 @@ export default {
 <style lang="scss" >
 .apexcharts-theme-dark svg {
   background: none !important;
+}
+.iconCards {
+  font-size: 7vw;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+.iconCards {
+  font-size: 25vw;
+}
 }
 </style>

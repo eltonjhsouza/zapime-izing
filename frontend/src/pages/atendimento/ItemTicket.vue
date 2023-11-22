@@ -16,7 +16,7 @@
       }">
       <q-item-section avatar
         class="q-px-none">
-        <q-btn flat
+        <!-- <q-btn flat
           @click="iniciarAtendimento(ticket)"
           push
           color="primary"
@@ -38,9 +38,10 @@
           <q-tooltip>
             Atender
           </q-tooltip>
-        </q-btn>
+        </q-btn> -->
+        <q-icon size="20px"
+          :name="`img:${ticket.channel}-logo.png`" />
         <q-avatar size="45px"
-          v-if="ticket.status !== 'pending'"
           class="relative-position">
           <q-badge v-if="ticket.unreadMessages"
             style="border-radius: 10px; z-index: 99"
@@ -63,8 +64,6 @@
         <q-item-label class="text-bold"
           lines="1">
           {{ !ticket.name ? ticket.contact.name : ticket.name }}
-          <q-icon size="20px"
-            :name="`img:${ticket.channel}-logo.png`" />
           <span class="absolute-top-right q-pr-xs">
             <q-badge dense
               style="font-size: .7em;"
@@ -112,10 +111,34 @@
           caption>
           Usuário: {{ ticket.username }}
         </q-item-label>
-
         <!-- <span class="absolute-bottom-right" v-if="ticket.unreadMessages">
           <q-badge style="font-size: .8em; border-radius: 10px;" class="q-py-xs" dense text-color="white" color="green" :label="ticket.unreadMessages" />
         </span> -->
+      </q-item-section>
+      <q-item-section>
+        <div class="flex justify-end q-mt-md">
+          <q-btn
+            @click="iniciarAtendimento(ticket)"
+            style="width: 50%"
+            dense
+            flat
+            class="bg-green-8 text-white"
+            label="Aceitar"
+            v-if="ticket.status === 'pending' || (buscaTicket && ticket.status === 'pending')"
+            >
+            <!-- <q-badge v-if="ticket.unreadMessages"
+              style="border-radius: 10px;"
+              class="text-center text-bold"
+              floating
+              dense
+              text-color="black"
+              color="blue-2"
+              :label="ticket.unreadMessages" /> -->
+            <q-tooltip>
+              Atender
+            </q-tooltip>
+          </q-btn>
+        </div>
       </q-item-section>
     </q-item>
     <q-separator color="grey-2"
@@ -194,6 +217,7 @@ export default {
       return formatDistance(data, new Date(), { locale: pt })
     },
     abrirChatContato (ticket) {
+      console.log(ticket)
       // caso esteja em um tamanho mobile, fechar a drawer dos contatos
       if (this.$q.screen.lt.md && ticket.status !== 'pending') {
         this.$root.$emit('infor-cabecalo-chat:acao-menu')

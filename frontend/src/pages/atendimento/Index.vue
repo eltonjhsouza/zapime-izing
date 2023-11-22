@@ -60,7 +60,7 @@
           <q-btn flat
             class="bg-padrao btn-rounded"
             icon="mdi-home"
-            @click="() => $router.push({ name: 'contatos' })">
+            @click="() => $router.push({ name: 'home-dashboard' })">
             <q-tooltip content-class="bg-padrao text-grey-9 text-bold">
               Retornar ao menu
             </q-tooltip>
