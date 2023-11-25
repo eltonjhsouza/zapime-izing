@@ -6,6 +6,7 @@
   "author": "Durans <lumardyelson@gmail.com>",
   "private": false,
   "scripts": {
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && quasar dev",
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
